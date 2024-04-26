@@ -24,7 +24,9 @@ LOCAL_OVERRIDES_PACKAGES += YTMusic \
 							GoogleDialer \
 							CarrierLocation \
 							TrichromeLibrary \
-							TrichromeLibrary-Stub 
+							TrichromeLibrary-Stub \
+							PrebuiltBugle \
+							Accord
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_SRC_FILES := /dev/null
