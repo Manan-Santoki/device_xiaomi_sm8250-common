@@ -269,6 +269,9 @@ PRODUCT_PACKAGES += \
     IFAAService
 endif
 
+# ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
