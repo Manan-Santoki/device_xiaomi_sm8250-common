@@ -341,16 +341,20 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    CarrierConfigOverlayCommon \
     FrameworkResOverlayCommon \
-    LineageDialerOverlayCommon \
     LineageSDKOverlayCommon \
     LineageSettingsOverlayCommon \
     SettingsOverlayCommon \
     SettingsProviderOverlayCommon \
     SystemUIOverlayCommon \
-    TelephonyOverlayCommon \
     WifiResourcesOverlayCommon
+
+ifneq ($(TARGET_IS_TABLET),true)
+PRODUCT_PACKAGES += \
+    CarrierConfigOverlayCommon \
+    LineageDialerOverlayCommon \
+    TelephonyOverlayCommon
+endif
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -421,6 +425,7 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/usb/etc
 
 # Telephony
+ifneq ($(TARGET_IS_TABLET),true)
 PRODUCT_PACKAGES += \
     ims-ext-common \
     ims_ext_common.xml \
@@ -434,6 +439,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext \
     xiaomi-telephony-stub
+endif
 
 # Thermal
 ifeq ($(TARGET_USE_QTI_THERMAL_SERVICE),true)
