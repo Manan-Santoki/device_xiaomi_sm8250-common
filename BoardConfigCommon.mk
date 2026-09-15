@@ -259,5 +259,3 @@ WIFI_FEATURE_HOSTAPD_11AX := true
 
 # Inherit the proprietary files
 include vendor/xiaomi/sm8250-common/BoardConfigVendor.mk
-# Camera - HIDL overrideFormat
-TARGET_CAMERA_USES_NEWER_HIDL_OVERRIDE_FORMAT := true
