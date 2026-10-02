@@ -14,7 +14,9 @@ fi
 sleep 20
 
 # Thermal Evaluation Override
+# sconfig 0 = default/balanced scenario (10 = benchmark, no thermal limits).
+# Force the balanced scenario at boot so thermals are not disabled by default.
 if [ -e /sys/class/thermal/thermal_message/sconfig ]; then
     chmod 0664 /sys/class/thermal/thermal_message/sconfig
-    echo 10 > /sys/class/thermal/thermal_message/sconfig
+    echo 0 > /sys/class/thermal/thermal_message/sconfig
 fi
