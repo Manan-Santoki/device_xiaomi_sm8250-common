@@ -161,9 +161,7 @@ endif
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
-    XiaomiDolby \
-    XiaomiParts \
-    DSPVolumeSynchronizer
+    XiaomiParts
 
 # Dex
 # Speed profile services and wifi-service to reduce RAM and storage.
@@ -190,10 +188,18 @@ PRODUCT_DISABLE_SCUDO := true
 # Dedupe VNDK libraries with identical core variants.
 TARGET_VNDK_USE_CORE_VARIANT := true
 
+# Dolby
+# Dolby is provided by the standalone hardware/dolby repository. It brings the
+# Dolby DMS/codec blobs, the LunarisDolby app, DSPVolumeSynchronizer, the DAX
+# tuning (pipa stock) and sepolicy. The matching Dolby blobs were removed from
+# the vendor tree to avoid duplicate module names / install paths.
+TARGET_INCLUDES_DOLBY := true
+TARGET_INCLUDES_DolbyVision := true
+$(call inherit-product, hardware/dolby/dolby.mk)
+
 # Dolby Props
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.dolby.dax.version=DAX3_3.6.1.6_r1 \
-    ro.vendor.audio.dolby.dax.version=DAX3_3.6 \
+    ro.vendor.audio.dolby.dax.version=DAX3_3.7 \
     ro.vendor.audio.dolby.dax.support=true \
     ro.vendor.audio.dolby.surround.enable=true
 
