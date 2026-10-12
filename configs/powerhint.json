@@ -509,7 +509,7 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "GPUMinFreq",
-      "Duration": 5000,
+      "Duration": 3000,
       "Value": "0"
     },
     {
